@@ -20,12 +20,15 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testGetList() {
+		
 		mapper.getList().forEach(board -> log.info(board));
 	}
 	
 	@Test
 	public void testInsert() {
+		
 		BoardVO board = new BoardVO();
+		
 		board.setTitle("지금 작성하는 글");
 		board.setContent("지금 작성하는 글의 내용");
 		board.setWriter("Casper");
@@ -37,6 +40,7 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testInsertSelectKey() {
+		
 		BoardVO board = new BoardVO();
 		
 		board.setTitle("지금 다시 작성하는 글");
@@ -50,6 +54,7 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testRead() {
+		
 		BoardVO board = mapper.read(3L);
 		
 		log.info(board);
@@ -57,11 +62,13 @@ public class BoardMapperTests {
 	
 	@Test
 	public void testDelete() {
+		
 		log.info("DELETE COUNT : " + mapper.delete(3L));
 	}
 	
 	@Test
 	public void testUpdate() {
+		
 		BoardVO board = new BoardVO();
 		
 		board.setBno(5L);

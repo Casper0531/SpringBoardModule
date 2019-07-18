@@ -11,8 +11,8 @@ select * from tbl_board where bno > 0
 </select>
 
 <insert id="insert">
-insert into tbl_board (bno, title, content, writer)
-values (seq_board.nextval, #{title}, #{content}, #{writer})
+	insert into tbl_board (bno, title, content, writer)
+	values (seq_board.nextval, #{title}, #{content}, #{writer})
 </insert>
 
 <insert id="insertSelectKey">
@@ -34,12 +34,12 @@ values (seq_board.nextval, #{title}, #{content}, #{writer})
 </delete>
 
 <update id="update">
-update tbl_board
-set title= #{title},
-content=#{content},
-writer = #{writer},
-updateDate = sysdate
-where bno = #{bno}
+	update tbl_board
+	set title= #{title},
+	content=#{content},
+	writer = #{writer},
+	updateDate = sysdate
+	where bno = #{bno}
 </update>
 
 </mapper>
