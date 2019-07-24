@@ -1,6 +1,9 @@
 package org.casper.mapper;
 
+import java.util.List;
+
 import org.casper.domain.BoardVO;
+import org.casper.domain.Criteria;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,7 @@ public class BoardMapperTests {
 
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
-	
+/*
 	@Test
 	public void testGetList() {
 		
@@ -65,7 +68,7 @@ public class BoardMapperTests {
 		
 		log.info("DELETE COUNT : " + mapper.delete(3L));
 	}
-	
+
 	@Test
 	public void testUpdate() {
 		
@@ -78,5 +81,17 @@ public class BoardMapperTests {
 		
 		int count = mapper.update(board);
 		log.info("UPDATE COUNT: " + count);
+	}
+*/	
+	@Test
+	public void testPaging() {
+		Criteria cri = new Criteria();
+		
+		cri.setAmount(10);
+		cri.setPageNum(3);
+		
+		List<BoardVO> list = mapper.getListWithPaging(cri);
+		
+		list.forEach(board -> log.info(board));
 	}
 }

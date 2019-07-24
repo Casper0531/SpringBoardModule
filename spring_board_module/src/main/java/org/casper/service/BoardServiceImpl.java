@@ -3,6 +3,7 @@ package org.casper.service;
 import java.util.List;
 
 import org.casper.domain.BoardVO;
+import org.casper.domain.Criteria;
 import org.casper.mapper.BoardMapper;
 import org.springframework.stereotype.Service;
 
@@ -48,12 +49,22 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.delete(bno) == 1;
 	}
 
+	/*
 	@Override
 	public List<BoardVO> getList() {
 		
 		log.info("getList...");
 		
 		return mapper.getList();
+	}
+	*/
+	
+	@Override
+	public List<BoardVO> getList(Criteria cri) {
+		
+		log.info("get List with criteria: " + cri);
+		
+		return mapper.getListWithPaging(cri);
 	}
 
 }

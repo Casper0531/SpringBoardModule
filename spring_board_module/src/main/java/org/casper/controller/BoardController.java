@@ -1,6 +1,7 @@
 package org.casper.controller;
 
 import org.casper.domain.BoardVO;
+import org.casper.domain.Criteria;
 import org.casper.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ public class BoardController {
 
 	private BoardService service;
 	
+	/*
 	@GetMapping("/list")
 	public void list(Model model) {
 		
@@ -28,7 +30,15 @@ public class BoardController {
 		
 		model.addAttribute("list", service.getList());
 	}
+	*/
 	
+	public void list(Criteria cri, Model model) {
+		
+		log.info("list");
+		
+		model.addAttribute("list", service.getList(cri));
+	}
+
 	@GetMapping("/register")
 	public void register() {
 		
